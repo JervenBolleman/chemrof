@@ -2676,13 +2676,22 @@ slots:
     aliases:
       - InChi
     is_a: chemical_formula
-    todos:
-      - declare this as a key once compound_key is introduced to linkml
     see_also:
       - https://chemistry.stackexchange.com/questions/151072/can-cis-trans-isomers-have-same-inchi
     exact_mappings:
       - OntoRXN:hasInChi
       - CHEMINF:000113
+    annotations:
+      owl: AnnotationAssertion
+  inchi_fixed_h_string:
+    title: Fixed Hydrogen InChi
+    description: A non-standard InChI that includes a Fixed H layer
+    aliases:
+      - FixedH InChi
+    comments:
+      - "A non-standard InChI that includes a Fixed H layer."
+      - "If the InChI is available as an :InchiObject, this must have the :inchi_fixed_H_layer"
+    is_a: chemical_formula
     annotations:
       owl: AnnotationAssertion
   inchi_key_string:
@@ -2695,6 +2704,18 @@ slots:
     aliases:
       - InChiKey
       - inchi key
+  inchi_fixed_h_key_string:
+    is_a: hashed_chemical_formula
+    description: A hashed representation of an Fixed H InChi string
+    comments:
+      - "An InChI Key calculated on a non-standard InChI that includes a Fixed H layer"
+      - "If the InChI that was keyed is available as an object, this must have the inchi_fixed_H_layer"
+    key: false
+    annotations:
+      hash_of: inchi_fixed_h_string
+    title: inchi fixed hydrogen key string
+    aliases:
+      - FixedHInChiKey
   inchi2d_string:
     title: InChi2D
     aliases:
